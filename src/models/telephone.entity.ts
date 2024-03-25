@@ -2,22 +2,16 @@ import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToOne } from "t
 import User from "./user.entity";
 
 @Entity()
-export default class Token extends BaseEntity {
+export default class Telephone extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number
 
     @Column()
-    token!: string
+    number!: number
 
-    @Column()
-    refreshToken!: string
-
-    @Column()
-    expiresAt!: Date
-    
     @Column()
     userId!: number
 
-    @ManyToOne(() => User, user => user.tokens)
+    @ManyToOne(() => User, user => user.telephones)
     user!: User
 }
